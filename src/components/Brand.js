@@ -8,7 +8,7 @@ import SearchBar from '../commons/SearchBar';
 const Brand = ({ counter }) => {
     const dispatch = useDispatch();
     return (
-        <View style={{ backgroundColor: 'white' }}>
+        <View style={{ backgroundColor: 'white',flex:1 }}>
             <SearchBar />
             <FlatList
                 data={Form[counter].menu}
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     touchStyle: {
         height: 44,
         backgroundColor: 'white',
-        borderBottomWidth: .2,
+        borderBottomWidth: .7,
         borderBottomColor: 'gray',
         flexDirection: 'row'
     }

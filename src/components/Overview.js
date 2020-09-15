@@ -3,15 +3,20 @@ import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import allActions from '../actions/index';
 import { FlatList } from 'react-native-gesture-handler';
+import { Dimensions } from "react-native";
 
 const Overview = () => {
     const dispatch = useDispatch();
     const tags = useSelector((state) => state.tag);
-    console.log(tags);
+    const screenHeight = Math.round(Dimensions.get('window').height);
+    const viewStyle = {
+        backgroundColor:'white',
+        height:screenHeight
+    }
     return (
-        <View >
+        <View style={viewStyle}>
             <FlatList
-                data={tags}
+                data={tags.slice(1)}
                 keyExtractor={(item, index) => index.toString()}
                 renderItem={({ item }) => {
                     return (
@@ -38,7 +43,13 @@ const Overview = () => {
                 }}
             />
             <TouchableOpacity
-                // onPress={()}
+                onPress={
+                    async ()=> {
+                        await dispatch(allActions.counter.postAsyncData(tags));
+                        await dispatch(allActions.counter.increment());
+                    }
+
+                }
                 style={styles.register}
             >
                 <Text style={styles.registerText}>Register</Text>
@@ -55,7 +66,7 @@ const styles = StyleSheet.create({
         height: 62,
         flexDirection: 'row',
         backgroundColor: 'white',
-        borderBottomWidth: .2,
+        borderBottomWidth: .7,
         borderBottomColor: 'gray',
     },
     features: {
@@ -64,7 +75,7 @@ const styles = StyleSheet.create({
         fontSize: 12
     },
     register: {
-        top: 203.6,
+        bottom: 180,
         backgroundColor: "#8D58FF",
         width: 295,
         height: 44,

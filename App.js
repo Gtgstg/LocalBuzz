@@ -3,18 +3,21 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import HomeScreen from './src/screens/HomeScreen';
 import CarScreen from './src/screens/CarScreen';
+import LoginScreen from './src/screens/LoginScreen';
 import rootReducer from './src/reducers';
 import createSagaMiddleware from 'redux-saga';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import rootSaga from './src/actions/sagas';
+// import LoginScreen from './src/screens/LoginScreen';
 const navigator = createStackNavigator(
   {
+    Login: LoginScreen,
     Home: HomeScreen,
     Car: CarScreen
   },
   {
-    initialRouteName: 'Home'
+    initialRouteName: 'Login'
   }
 );
 const sagaMiddleware = createSagaMiddleware();

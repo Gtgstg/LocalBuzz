@@ -7,7 +7,7 @@ const SearchBar = () => {
                 resizeMode="contain"
                 source={require('../../assets/Images/Overview/New.png')}
             />
-            <TextInput style={{ left: 10 }} placeholder='Search'></TextInput>
+            <TextInput style={{ left: 10,width:335 }} placeholder='Search'></TextInput>
         </View>
     );
 }

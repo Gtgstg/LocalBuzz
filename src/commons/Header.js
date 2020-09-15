@@ -13,9 +13,11 @@ const Header = ({ type }) => {
 
     return (
         <View style={styles.header}>
+            {
+                type<6 &&
             <FlatList style={styles.flatList}
                 horizontal
-                data={tags}
+                data={tags.slice(1)}
                 keyExtractor={(item, index) => index.toString()}
                 renderItem={({ item }) => {
                     return (
@@ -23,6 +25,11 @@ const Header = ({ type }) => {
                     );
                 }}
             />
+            }
+            {
+                type == 6 && 
+                <View style={styles.overview}/>
+            }
             <Title title={title} />
             <ProgressBar percentage={percentage} />
         </View>
@@ -40,6 +47,9 @@ const styles = StyleSheet.create({
     },
     flatList: {
         marginLeft: 16
+    },
+    overview:{
+        height:85
     }
 });
 

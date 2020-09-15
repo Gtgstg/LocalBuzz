@@ -8,6 +8,7 @@ import { FlatList } from 'react-native-gesture-handler';
 const Type = ({ counter }) => {
     const dispatch = useDispatch();
     const tags = useSelector((state) => state.tag);
+    // const {default:image} = import('../../assets/Images/Cartype/SUV.png');
     return (
         <View>
             <FlatList
@@ -23,6 +24,7 @@ const Type = ({ counter }) => {
                             }}
                         >
                             <Image style={{ top: 14.24, left: 20, width: 91, height: 31.53 }} resizeMode="contain" source={require('../../assets/Images/Cartype/SUV.png')} />
+                            {/* <Image style={{ top: 14.24, left: 20, width: 91, height: 31.53 }} resizeMode="contain" source={{uri:Image.resolveAssetSource(image).uri}} /> */}
                             <View style={{ top: 12, left: 33 }}>
                                 <Text style={styles.menu}>{item.name}</Text>
                                 <FlatList
@@ -52,7 +54,7 @@ const styles = StyleSheet.create({
         height: 62,
         flexDirection: 'row',
         backgroundColor: 'white',
-        borderBottomWidth: .2,
+        borderBottomWidth: .7,
         borderBottomColor: 'gray',
     },
     features: {

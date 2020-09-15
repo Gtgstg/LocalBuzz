@@ -9,6 +9,7 @@ import Find from './../components/Find';
 import Brand from './../components/Brand';
 import Type from './../components/Type';
 import Overview from './../components/Overview';
+import Done from './../components/Done';
 
 const CarScreen = () => {
     // const dispatch = useDispatch();
@@ -37,6 +38,8 @@ const CarScreen = () => {
             case 6:
                 setFormData(<Overview />)
                 break;
+            case 7:
+                setFormData(<Done/>)
             default:
                 break;
         }
@@ -48,9 +51,12 @@ const CarScreen = () => {
     // customAsyncData.slideshow.author ? customAsyncData.slideshow :{author:"",date:"",title:""};
     return (
         <View style={styles.view}>
-            <Header
-                type={counter}
-            />
+            {
+                counter<7 &&
+                <Header
+                    type={counter}
+                />
+            }
             {formData}
             {/* <Text>{counter}</Text>
             <Text>{author}</Text>
