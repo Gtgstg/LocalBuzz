@@ -2,12 +2,12 @@ const Form = [
     {
         title: 'Find your right car',
         id: 0,
-        menu: ['New', 'Used']
+        data: ['New', 'Used']
     },
     {
         title: 'Car Type',
         id: 1,
-        menu: [
+        data: [
             {
                 name: 'Hatchback',
                 features: ['Small Cars', 'Hatchbacks'],
@@ -43,7 +43,7 @@ const Form = [
     {
         title: 'Brands',
         id: 2,
-        menu: [
+        data: [
             {
                 name: 'Not Sure',
                 image: '/Images/Brands/notsure.png'
@@ -97,20 +97,21 @@ const Form = [
     {
         title: 'Price Range',
         id: 3,
-        menu: ['7-10 Lakhs', '11-14 Lakhs', '15-19 Lakhs']
+        data: ['7-10 Lakhs', '11-14 Lakhs', '15-19 Lakhs']
     },
     {
         title: 'How Soon?',
         id: 4,
-        menu: ['As Soon As Possible', '1 Month', '1-3 Months', '3+ Months', 'Not Sure']
+        data: ['As Soon As Possible', '1 Month', '1-3 Months', '3+ Months', 'Not Sure']
     },
     {
         title: 'Location',
         id: 5,
-        menu: ['Suggestion 1', 'Suggestion 2', 'Suggestion 3']
+        data: ['Suggestion 1', 'Suggestion 2', 'Suggestion 3']
     },
     {
-        title: 'Overview'
+        title: 'Overview',
+        data:[]
     }
 
 ]

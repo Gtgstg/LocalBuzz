@@ -1,14 +1,10 @@
 {
-  "expo": {    "name": "LocalBuzz",
+  "expo": {
+    "name": "LocalBuzz",
     "slug": "LocalBuzz",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -21,11 +17,12 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "android":{
-      "permissions":[
+    "android": {
+      "permissions": [
         "ACCESS_FINE_LOCATION",
         "ACCESS_COARSE_LOCATION"
-      ]
+      ],
+      "package": "localbuzz.expo.client"
     }
   }
 }

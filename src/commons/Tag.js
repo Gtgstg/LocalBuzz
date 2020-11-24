@@ -1,13 +1,9 @@
 import React from 'react';
 import { Text, StyleSheet } from 'react-native';
 
-const Tag = ({ title }) => {
-    return <Text style={styles.label}>{title}</Text>;
-}
-
-const styles = StyleSheet.create({
-    label: {
-        top: 52,
+const Tag = ({ title,top }) => {
+    const label= {
+        top: (top)?23:52,
         fontSize: 17,
         textAlign: "center",
         color: "#000000",
@@ -22,6 +18,7 @@ const styles = StyleSheet.create({
         height: 24
 
     }
-});
+    return <Text style={label}>{title}</Text>;
+}
 
 export default Tag;

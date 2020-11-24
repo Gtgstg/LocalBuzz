@@ -5,11 +5,11 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import allActions from '../actions/index';
 import { FlatList } from 'react-native-gesture-handler';
-import Find from './../components/Find';
-import Brand from './../components/Brand';
-import Type from './../components/Type';
-import Overview from './../components/Overview';
-import Done from './../components/Done';
+import Find from './../components/car/Find';
+import Brand from './../components/car/Brand';
+import Type from './../components/car/Type';
+import Overview from './../components/car/Overview';
+import Done from './../components/car/Done';
 
 const CarScreen = () => {
     // const dispatch = useDispatch();
@@ -36,7 +36,7 @@ const CarScreen = () => {
                 setFormData(<Find counter={counter} search={true} />)
                 break;
             case 6:
-                setFormData(<Overview />)
+                setFormData(<Overview/>)
                 break;
             case 7:
                 setFormData(<Done/>)
