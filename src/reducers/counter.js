@@ -1,9 +1,20 @@
+export const auth = (state = false, action) => {
+    // console.log("state"+state);
+    switch (action.type) {
+        case 'auth':
+            return !state;
+        default: return state;
+    }
+}
+
 export const counter = (state = 0, action) => {
     switch (action.type) {
         case 'INCREMENT':
             return state + 1;
         case 'Decrement':
             return state - 1;
+        case 'reset':
+            return 0;
         default: return state;
     }
 }
@@ -21,7 +32,7 @@ export const chatCounter = (state = 0, action) => {
 export const groups = (state = [], action) => {
     switch (action.type) {
         case 'Set_data':
-            console.log("bbb"+action.payload);
+            // console.log("bbb"+action.payload);
             return { ...state, payload: action.payload };
         case 'POP':
             let newState = {...state};
@@ -33,9 +44,11 @@ export const groups = (state = [], action) => {
 }
 
 export const user = (state = [], action) => {
-    console.log(action.payload);
+    // console.log(action.payload);
     switch (action.type) {
         case 'Set_user':
+            return { ...state, payload: action.payload };
+        case 'logSign':
             return { ...state, payload: action.payload };
         default:
             return state;
@@ -43,7 +56,7 @@ export const user = (state = [], action) => {
 }
 
 export const coming = (state = [], action) => {
-    console.log(action.payload);
+    // console.log(action.payload);
     switch (action.type) {
         case 'Set_coming':
             return { ...state, payload: action.payload };
@@ -52,7 +65,7 @@ export const coming = (state = [], action) => {
     }
 }
 export const suggest = (state = [], action) => {
-    console.log(action.payload);
+    // console.log(action.payload);
     switch (action.type) {
         case 'Set_suggest':
             return { ...state, payload: action.payload };

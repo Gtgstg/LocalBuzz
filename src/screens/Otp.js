@@ -4,7 +4,8 @@ import * as firebase from "firebase";
 import {LinearGradient} from 'expo-linear-gradient'
 import { useDispatch,useSelector } from 'react-redux';
 import allActions from '../actions/index';
-    
+import Slider from '../commons/Slider';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const firebaseConfig = {
     apiKey: "AIzaSyD_9jCUDGxXKKyOeFu8fnYT8CLNwVo-zVo",
@@ -28,28 +29,32 @@ const Otp = ({ route,navigation }) => {
         ? { text: "To get started, provide a valid firebase config in App.js and open this snack on an iOS or Android device."}
         : undefined);
     const errors="Wrong OTP";
-    console.log("hello");
-    console.log(users);
-    console.log("hello");
+    // console.log("hello");
+    // console.log(users);
+    // console.log("hello");
     return (
         <View style={{backgroundColor:'white',flex:1}}>
+            <Slider/>
             {/* <Image style={{ width: 247, height: 86.29}} resizeMode="contain" source={require('../../assets/Logo/LOGOtransparent.png')} /> */}
-            {name && <Text style={{fontSize:10,top:"60%",left:"15%",color:'#98989B'}}>Name</Text> &&
+            {name && 
+            <Text style={{fontSize:10,top:'46%',left:"15%",color:'#98989B'}}>Name</Text> 
+            }
+            {name &&
             <Text
-                style={{width:'70%',fontSize:17,top:"62.5%",left:"15%",borderColor:'#98989B',borderBottomWidth:1}}
+                style={{width:'70%',fontSize:17,top:"47%",left:"15%",borderColor:'#98989B',borderBottomWidth:1}}
                 // onChangeText={text => setName(text)}
                 // value={name}
             >{name}</Text>
             }
-            <Text style={{fontSize:10,top:"65%",left:"15%",color:'#98989B'}}>Number</Text>
+            <Text style={{fontSize:10,top:"49%",left:"15%",color:'#98989B'}}>Number</Text>
             <Text
-                style={{width:'70%',fontSize:17,top:"67.5%",left:"15%",borderColor:'#98989B',borderBottomWidth:1}}
+                style={{width:'70%',fontSize:17,top:"51%",left:"15%",borderColor:'#98989B',borderBottomWidth:1}}
                 // onChangeText={text => setNumber(text)}
                 // value={number}
             >{number}</Text>
-            <Text style={{fontSize:10,top:"70%",left:"15%",color:'#98989B'}}>OTP</Text>
+            <Text style={{fontSize:10,top:"53.5%",left:"15%",color:'#98989B'}}>OTP</Text>
             <TextInput
-                style={{width:'70%',fontSize:17,top:"72.5%",left:"15%",borderColor:'#98989B',borderBottomWidth:1}}
+                style={{width:'70%',fontSize:17,top:"54%",left:"15%",borderColor:'#98989B',borderBottomWidth:1}}
                 onChangeText={text => setOtp(text)}
                 value={otp}
             ></TextInput>
@@ -59,8 +64,8 @@ const Otp = ({ route,navigation }) => {
                         onPress={async () => {
                                 try {
                                     const credential = await firebase.auth.PhoneAuthProvider.credential(
-                                    verificationId,
-                                    otp
+                                        verificationId,
+                                        otp
                                     );
                                     await firebase.auth().signInWithCredential(credential);
                                     await navigation.navigate('Email',{page:true,name,number});
@@ -75,8 +80,7 @@ const Otp = ({ route,navigation }) => {
                     <Text style={{color:'#744DFF',fontSize:17}}>CONTINUE</Text>
                 </TouchableOpacity>
             }
-            {
-                !name &&
+            {!name &&
                 <TouchableOpacity
                     style={{
                         width:295,
@@ -84,7 +88,7 @@ const Otp = ({ route,navigation }) => {
                         alignSelf:'center',
                         justifyContent:'center',
                         alignItems:'center',
-                        top:'75%'
+                        top:'58%'
                     }}
                     onPress={async () => {
                         try {
@@ -93,22 +97,24 @@ const Otp = ({ route,navigation }) => {
                             otp
                             );
                             await firebase.auth().signInWithCredential(credential);
-                            await dispatch(allActions.tag.push(number));
+                            // await dispatch(allActions.tag.push(number));
                             await dispatch(allActions.counter.getAsyncData(users[0].id));
+                            await AsyncStorage.setItem('user',JSON.stringify(users));
                             await navigation.navigate('Home');
+                            // await dispatch(allActions.counter.auth());
                             showMessage({ text: "Phone authentication successful 👍" });
                         } catch (err) {
                             showMessage({ text: `${errors}`, color: "red" });
                         }
                         }
                     }
-            >
+                >
                 <LinearGradient
-                colors={['#8C58FF','#5C41FF']}
-                start={{ x: 0, y: 0.5 }}
-                end={{ x: 1, y: 0.5 }}
-                style={styles.button3}
-            >
+                    colors={['#8C58FF','#5C41FF']}
+                    start={{ x: 0, y: 0.5 }}
+                    end={{ x: 1, y: 0.5 }}
+                    style={styles.button3}
+                >
                 <Text style={{color:'white',fontSize:17,textAlignVertical:'center',justifyContent:'center'}}>LOG IN</Text>
                 </LinearGradient>
             </TouchableOpacity>
@@ -118,7 +124,7 @@ const Otp = ({ route,navigation }) => {
             //     style={[StyleSheet.absoluteFill, { backgroundColor: 0xffffffee, justifyContent: "center" }]}
             //     onPress={() => showMessage(undefined)}
             // >
-                <Text style={{color: message.color || "blue", fontSize: 15,top:"66.8%",left:"15%", }}>
+                <Text style={{color: message.color || "blue", fontSize: 15,top:"46.8%",left:"15%", }}>
                     {message.text}
                 </Text>
             // </TouchableOpacity>
@@ -143,7 +149,7 @@ const styles = StyleSheet.create({
         borderRadius:10,
         justifyContent:'center',
         alignItems:'center',
-        top:'80%'
+        top:'56%'
     },
     button3:{
         borderRadius:10,

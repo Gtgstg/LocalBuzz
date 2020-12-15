@@ -4,9 +4,28 @@ const increment = () => {
     }
 };
 
+const auth = () => {
+    return {
+        type: 'auth'
+    }
+};
+
+const logSign = (tag) => {
+    return {
+        type: 'logSign',
+        payload: tag
+    }
+};
+
 const decrement = () => {
     return {
         type: 'Decrement'
+    }
+};
+
+const reset = () => {
+    return {
+        type: 'reset'
     }
 };
 
@@ -25,6 +44,13 @@ const dec = () => {
 const getAsyncData = (tags) => {
     return {
         type: 'Get_async_data',
+        payload:tags,
+    }
+};
+
+const edit = (tags) => {
+    return {
+        type: 'edit',
         payload:tags,
     }
 };
@@ -129,4 +155,4 @@ const pop = () => {
         type: 'POP'
     }
 };
-export default { suggest,coming,leave,accept,skip,pop,increment, decrement, getAsyncData, postAsyncData, add, inc, dec, postAsyncAddData, postAsyncCreateData, getAsyncUser,chatTag, signup,getUsers,sendMail };
+export default {logSign, auth,edit,reset,suggest,coming,leave,accept,skip,pop,increment, decrement, getAsyncData, postAsyncData, add, inc, dec, postAsyncAddData, postAsyncCreateData, getAsyncUser,chatTag, signup,getUsers,sendMail };

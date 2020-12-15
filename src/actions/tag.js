@@ -4,6 +4,11 @@ const push = (tag) => {
         payload: tag
     }
 };
+const tag_pop = ()=>{
+    return{
+        type:'POP'
+    }
+};
 
 
-export default { push };
+export default { push,tag_pop };

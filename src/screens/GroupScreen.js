@@ -11,7 +11,7 @@ const GroupScreen = ({ navigation }) => {
     const chatCounter = useSelector((state) => state.chatCounter);
     const [screen, setScreen] = useState(null);
     const groups = useSelector((state)=>state.groups).payload;
-    console.log(groups);
+    // console.log(groups);
     useEffect(() => {
         switch (chatCounter) {
             case 0:

@@ -8,7 +8,7 @@ import Group from './Group';
 import DatePicker from 'react-native-datepicker';
 
 const Newgroup = ({ navigation }) => {
-    console.log(navigation);
+    // console.log(navigation);
     // const dispatch = useDispatch();
     // const groups = useSelector((state) => state.groups).payload;
     // const [name, setName] = useState("");
@@ -171,7 +171,7 @@ const Newgroup = ({ navigation }) => {
         //     </TouchableOpacity>
         // </View >
         <View>
-            <Text>Name:</Text>
+            <Text style={{top:20}}>Name:</Text>
             <TextInput
                 onChangeText={text => setValue(text)}
                 value={value}
@@ -207,6 +207,12 @@ const Newgroup = ({ navigation }) => {
                     await dispatch(allActions.tag.push(value));
                     await dispatch(allActions.tag.push(date));
                     await navigation.navigate('Car');
+                }}
+            />
+            <Button
+                title='Back'
+                onPress={async () =>{
+                    await dispatch(allActions.counter.inc());
                 }}
             />
         </View>

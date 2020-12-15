@@ -6,11 +6,11 @@ const runOurAction = function* (action) {
     let params={
         'data':action.payload
     };
-    yield axios.post('http://172.21.0.1:8000/groups',params,headers={'Content-Type': 'application/json'}).then((res) => {
+    yield axios.post('https://localbuzz247.herokuapp.com/groups',params,headers={'Content-Type': 'application/json'}).then((res) => {
         remoteData = res.data;
-        console.log(remoteData);
+        // console.log(remoteData);
     });
-    console.log(remoteData);
+    // console.log(remoteData);
     yield put({ type: "Set_data", payload: remoteData });
 }
 
@@ -19,11 +19,11 @@ const signup = function* (action) {
     let params={
         'data':action.payload
     };
-    yield axios.post('http://172.21.0.1:8000/signup',params,headers={'Content-Type': 'application/json'}).then((res) => {
+    yield axios.post('https://localbuzz247.herokuapp.com/signup',params,headers={'Content-Type': 'application/json'}).then((res) => {
         remoteData = res.data;
-        console.log(remoteData);
+        // console.log(remoteData);
     });
-    console.log(remoteData);
+    // console.log(remoteData);
     yield put({ type: "Set_user", payload: remoteData });
 }
 
@@ -32,7 +32,7 @@ const runGetUsersAction = function* (action) {
         'data':action.payload
     };
     let remoteData;
-    yield axios.post('http://172.21.0.1:8000/groupuser',params,headers={'Content-Type': 'application/json'}).then((res) => {
+    yield axios.post('https://localbuzz247.herokuapp.com/groupuser',params,headers={'Content-Type': 'application/json'}).then((res) => {
         remoteData = res.data;
     });
     yield put({ type: "Set_groupuser", payload: remoteData });
@@ -43,7 +43,19 @@ const runOurUserAction = function* (action) {
         'data':action.payload
     };
     let remoteData;
-    yield axios.post('http://172.21.0.1:8000/curruser',params,headers={'Content-Type': 'application/json'}).then((res) => {
+    yield axios.post('https://localbuzz247.herokuapp.com/curruser',params,headers={'Content-Type': 'application/json'}).then((res) => {
+        remoteData = res.data;
+    });
+    yield put({ type: "Set_user", payload: remoteData });
+    // return remoteData;
+}
+
+const editAction = function* (action) {
+    let params={
+        'data':action.payload
+    };
+    let remoteData;
+    yield axios.post('https://localbuzz247.herokuapp.com/edit',params,headers={'Content-Type': 'application/json'}).then((res) => {
         remoteData = res.data;
     });
     yield put({ type: "Set_user", payload: remoteData });
@@ -55,7 +67,7 @@ const comingAction = function* (action) {
         'data':action.payload
     };
     let remoteData;
-    yield axios.post('http://172.21.0.1:8000/coming',params,headers={'Content-Type': 'application/json'}).then((res) => {
+    yield axios.post('https://localbuzz247.herokuapp.com/coming',params,headers={'Content-Type': 'application/json'}).then((res) => {
         remoteData = res.data;
     });
     yield put({ type: "Set_coming", payload: remoteData });
@@ -67,7 +79,7 @@ const suggestAction = function* (action) {
         'data':action.payload
     };
     let remoteData;
-    yield axios.post('http://172.21.0.1:8000/suggest',params,headers={'Content-Type': 'application/json'}).then((res) => {
+    yield axios.post('https://localbuzz247.herokuapp.com/suggest',params,headers={'Content-Type': 'application/json'}).then((res) => {
         remoteData = res.data;
     });
     yield put({ type: "Set_suggest", payload: remoteData });
@@ -79,7 +91,7 @@ const runSendMailAction = function* (action) {
         'data':action.payload
     };
     let remoteData;
-    yield axios.post('http://172.21.0.1:8000/send',params,headers={'Content-Type': 'application/json'}).then((res) => {
+    yield axios.post('https://localbuzz247.herokuapp.com/send',params,headers={'Content-Type': 'application/json'}).then((res) => {
         remoteData = res.data;
     });
     yield put({ type: "Set_mail", payload: remoteData });
@@ -90,7 +102,7 @@ const runLeaveAction = function* (action) {
         'data':action.payload
     };
     let remoteData;
-    yield axios.post('http://172.21.0.1:8000/leave',params,headers={'Content-Type': 'application/json'}).then((res) => {
+    yield axios.post('https://localbuzz247.herokuapp.com/leave',params,headers={'Content-Type': 'application/json'}).then((res) => {
         remoteData = res.data;
     });
     yield put({ type: "Set_data", payload: remoteData });
@@ -101,7 +113,7 @@ const runPostAction = function* (action) {
         'data':action.payload
     };
     let remoteData;
-    yield axios.post('http://172.21.0.1:8000/car-type',params,headers={'Content-Type': 'application/json'}).then((res) => {
+    yield axios.post('https://localbuzz247.herokuapp.com/car-type',params,headers={'Content-Type': 'application/json'}).then((res) => {
         remoteData = res.data;
     });
     // console.log(remoteData);
@@ -113,10 +125,10 @@ const runPostCreateAction = function* (action) {
         'data':action.payload
     };
     let remoteData;
-    yield axios.post('http://172.21.0.1:8000/create-group',params,headers={'Content-Type': 'application/json'}).then((res) => {
+    yield axios.post('https://localbuzz247.herokuapp.com/create-group',params,headers={'Content-Type': 'application/json'}).then((res) => {
         remoteData = res.data;
     });
-    console.log(remoteData);
+    // console.log(remoteData);
     yield put({ type: "Set_res", payload: remoteData });
 }
 
@@ -125,10 +137,10 @@ const runPostAddAction = function* (action) {
         'data':action.payload
     };
     let remoteData;
-    yield axios.post('http://172.21.0.1:8000/groupTag',params,headers={'Content-Type': 'application/json'}).then((res) => {
+    yield axios.post('https://localbuzz247.herokuapp.com/groupTag',params,headers={'Content-Type': 'application/json'}).then((res) => {
         remoteData = res.data;
     });
-    console.log(remoteData);
+    // console.log(remoteData);
     yield put({ type: "chatTag", payload: remoteData });
 }
 
@@ -137,7 +149,7 @@ const runAcceptAction = function* (action) {
         'data':action.payload
     };
     let remoteData;
-    yield axios.post('http://172.21.0.1:8000/accept',params,headers={'Content-Type': 'application/json'}).then((res) => {
+    yield axios.post('https://localbuzz247.herokuapp.com/accept',params,headers={'Content-Type': 'application/json'}).then((res) => {
         remoteData = res.data;
     });
     console.log(remoteData);
@@ -149,10 +161,10 @@ const runSkipAction = function* (action) {
         'data':action.payload
     };
     let remoteData;
-    yield axios.post('http://172.21.0.1:8000/skip',params,headers={'Content-Type': 'application/json'}).then((res) => {
+    yield axios.post('https://localbuzz247.herokuapp.com/skip',params,headers={'Content-Type': 'application/json'}).then((res) => {
         remoteData = res.data;
     });
-    console.log(remoteData);
+    // console.log(remoteData);
     yield put({ type: "set_accept", payload: remoteData });
 }
 
@@ -174,6 +186,10 @@ function* signUpWatcher() {
 
 function* getUsersWatcher() {
     yield takeLatest('Get_users', runGetUsersAction)
+}
+
+function* editWatcher() {
+    yield takeLatest('edit', editAction)
 }
 
 function* getAsyncUserWatcher() {
@@ -209,5 +225,5 @@ function* skipWatcher() {
 }
 
 export default function* rootSaga() {
-    yield all([coming(),suggest(),leaveWatcher(),acceptWatcher(),skipWatcher(),sendMailWatcher(),getUsersWatcher() ,signUpWatcher(),getAsyncDataWatcher(),getAsyncUserWatcher(),postAsyncDataWatcher(),postAsyncCreateDataWatcher(),postAsyncAddDataWatcher()]);
+    yield all([editWatcher(),coming(),suggest(),leaveWatcher(),acceptWatcher(),skipWatcher(),sendMailWatcher(),getUsersWatcher() ,signUpWatcher(),getAsyncDataWatcher(),getAsyncUserWatcher(),postAsyncDataWatcher(),postAsyncCreateDataWatcher(),postAsyncAddDataWatcher()]);
 }

@@ -1,8 +1,11 @@
 import React from 'react';
 import { View, StyleSheet,Image,Text,TouchableOpacity } from 'react-native';
 import { Dimensions } from "react-native";
-const Done = () => {
+import { useDispatch } from 'react-redux';
+import allActions from '../../actions/index';
+const Done = ({navigation}) => {
     const screenHeight = Math.round(Dimensions.get('window').height);
+    const dispatch = useDispatch();
     const viewStyle = {
         backgroundColor:'white',
         height:screenHeight+45
@@ -15,13 +18,13 @@ const Done = () => {
             />
             <Text style={styles.Text}>We are finding the perfect group for you! Will notify you soon.</Text>
             <TouchableOpacity
-                // onPress={
-                //     // async ()=> {
-                //     //     await dispatch(allActions.counter.postAsyncData(tags));
-                //     //     await dispatch(allActions.counter.increment());
-                //     // }
+                onPress={
+                    async ()=> {
+                        await dispatch(allActions.counter.reset());
+                        await navigation.navigate('Home');
+                    }
 
-                // }
+                }
                 style={styles.done}
             >
                 <Text style={styles.doneText}>Done</Text>

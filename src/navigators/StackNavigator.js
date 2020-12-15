@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { View, StyleSheet, Image, TouchableOpacity,Text } from 'react-native';
 
@@ -12,21 +12,27 @@ import LoginScreen from '../screens/LoginScreen';
 import DrawerNavigation from './DrawerNavigator';
 import Something from "../screens/Something";
 import ComingSoon from "../screens/ComingSoon";
+import Detail from "../screens/Detail";
+import Edit from "../screens/Edit";
 const Stack = createStackNavigator();
 
+
 const StackNavigator = () => {
+
     return (
-      <Stack.Navigator>
+      <Stack.Navigator 
+      >
         <Stack.Screen name="Splash" component={Splash} options={
           {headerShown: false}
           }/>
-        <Stack.Screen name="Home" component={DrawerNavigation} 
-          options={{headerShown:false}
-        }
-        />
-        <Stack.Screen name="Logsign" component={Logsign} options={
+          <Stack.Screen name="Home" component={DrawerNavigation} 
+            options={{headerShown:false}
+          }
+          />
+          <Stack.Screen name="Logsign" component={Logsign} options={
           {headerShown: false}
           } />
+          
           <Stack.Screen name="Something" component={Something} options={
           {headerShown: false}
           } />
@@ -46,6 +52,12 @@ const StackNavigator = () => {
           {headerShown: false}
           } />
         <Stack.Screen name="Car" component={CarScreen} options={
+          {headerShown: false}
+          } />
+          <Stack.Screen name="Detail" component={Detail} options={
+          {headerShown: false}
+          } />
+          <Stack.Screen name="Edit" component={Edit} options={
           {headerShown: false}
           } />
       </Stack.Navigator>

@@ -7,7 +7,7 @@ import rootSaga from './src/actions/sagas';
 import {StackNavigator} from './src/navigators/StackNavigator';
 import {NavigationContainer} from '@react-navigation/native';
 const sagaMiddleware = createSagaMiddleware();
-const initialState = { coming:[],suggest:[],counter: 0,chatCounter:0, groups: [], tag: [], chatRoom: '',res:[], user:[],chatTag:[],signup:[],groupUser:[],sendMail:[],accept:''};
+const initialState = { coming:[],suggest:[],counter: 0,chatCounter:0, groups: [], tag: [], chatRoom: '',res:[], user:[],chatTag:[],signup:[],groupUser:[],sendMail:[],accept:'',auth:false};
 
 const App = () => {
   return (

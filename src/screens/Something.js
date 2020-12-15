@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { View,Text, StyleSheet,TouchableOpacity,TextInput } from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient'
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import allActions from '../actions/index';
 
 const Something = ({ navigation }) => {
     const [suggestion,setSuggestion]=useState('');
+    const user = useSelector((state)=>state.user).payload;
     const dispatch = useDispatch();
+    // console.log(user);
     return (
         <View style={{flexDirection:"column",justifyContent: 'center',alignItems: 'center',height: '100%'}}>
             <LinearGradient
@@ -27,7 +29,7 @@ const Something = ({ navigation }) => {
                 <TouchableOpacity
                     style={styles.sign}
                     onPress={async () => {
-                        await dispatch(allActions.counter.suggest(suggestion));
+                        await dispatch(allActions.counter.suggest([user[0].id,suggestion]));
                         await navigation.navigate('Home')}}
                 >
                     <Text style={{color:'#6847FF',fontSize:17}}>Submit</Text>

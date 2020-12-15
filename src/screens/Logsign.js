@@ -1,8 +1,49 @@
-import React from 'react';
-import { View,Text, StyleSheet,TouchableOpacity } from 'react-native';
+import React, { useEffect } from 'react';
+import { View,Text, StyleSheet,TouchableOpacity,BackHandler,Alert } from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient'
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useDispatch,useSelector } from 'react-redux';
+import allActions from '../actions/index';
+const Logsign =  (props) => {
+    const dispatch = useDispatch();
+    // useEffect(()=>{
+    //     AsyncStorage.getItem("user")
+    //     .then(async (e)=>{
+    //         console.log("hii"+e);
+    //         if(e){
+    //             const y=JSON.parse(e);
+    //             // console.log(navigation.navigate("Home"));
+    //             await dispatch(allActions.counter.logSign(y));
+    //             await dispatch(allActions.counter.getAsyncData(y[0].id));
+    //             await navigation.navigate('Home');
+    //         }
+    //     })
+    //     .catch((err)=>
+    //         console.log(hii+" "+err)
+    //     )
+    // },[]);
+    // const backAction = () => {
+    //     console.log(props.route.name);
+    //     Alert.alert("Hold on!", "Are you sure you want to go back?", [
+    //       {
+    //         text: "Cancel",
+    //         onPress: () => null,
+    //         style: "cancel"
+    //       },
+    //       { text: "YES", onPress: () => {
+    //           if(props.route.name==="Home"|| props.route.name==='Login')
+    //             return true;
+    //         else return BackHandler.exitApp()
+    //          }}
+    //     ]);
+    //     return true;
+    //   };
+    //   useEffect(()=>{
+    //     BackHandler.addEventListener("hardwareBackPress", backAction);
 
-const Logsign = ({ navigation }) => {
+    //     return () =>
+    //     BackHandler.removeEventListener("hardwareBackPress", backAction);
+    //   },[])
     return (
         <View style={{flexDirection:"column",justifyContent: 'center',alignItems: 'center',height: '100%'}}>
             <LinearGradient
@@ -14,14 +55,15 @@ const Logsign = ({ navigation }) => {
                 <Text style={styles.text}>Find what's buzzing in your locality</Text>
                 <TouchableOpacity
                     style={styles.sign}
-                    onPress={() => navigation.navigate('Sign')}
+                    onPress={() => props.navigation.navigate('Sign')}
                 >
                     <Text style={{color:'#6847FF',fontSize:17}}>Sign up</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={styles.login}
                     onPress={async () => {
-                            await navigation.navigate('Email',{page:false});
+                        console.log('hii');
+                            await props.navigation.navigate('Email',{page:false});
                         }
                     }
                 >
@@ -44,7 +86,8 @@ const styles = StyleSheet.create({
         fontSize:32,
         color:'white',
         top:"40%",
-        textAlign:'center'
+        textAlign:'center',
+        width:'90%'
     },
     sign:{
         width:295,

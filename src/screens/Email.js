@@ -1,11 +1,13 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState,useCallback} from 'react';
 import { View, StyleSheet, Image, TouchableOpacity,TextInput,Text } from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient'
 import { FirebaseRecaptchaVerifierModal } from "expo-firebase-recaptcha";
 import * as firebase from "firebase";
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import allActions from '../actions/index';
 import * as Linking from 'expo-linking';
+import Slider from '../commons/Slider';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const firebaseConfig = {
     apiKey: "AIzaSyD_9jCUDGxXKKyOeFu8fnYT8CLNwVo-zVo",
     authDomain: "react-native-chat-d49c8.firebaseapp.com",
@@ -20,7 +22,8 @@ if (firebase.apps.length === 0) {
     firebase.initializeApp(firebaseConfig)
 }
 const Email = ({ route,navigation }) => {
-    const [location,SetLocation] = useState(null);
+    const user = useSelector((state)=>state.user).payload;
+    const [location,SetLocation] = useState('');
     const dispatch = useDispatch();
     const {page,name,number} = route.params;
     const [email,setEmail]=(page)?useState(''):useState('+91');
@@ -32,7 +35,7 @@ const Email = ({ route,navigation }) => {
         : undefined);
     const errors = "Invalid Input."
     const link = Linking.makeUrl('Mail/');
-    console.log(link);
+    // console.log(link);
     const FIREBASE_LINK_PROXY = 'https://wt-6e2a5f000b93f69e1b65cf98021e1945-0.sandbox.auth0-extend.com/firebase-authentication-link-redirect';
     const proxyUrl = `${FIREBASE_LINK_PROXY}?redirectUrl=${encodeURIComponent(link)}`;
     // console.log(proxyUrl);
@@ -48,6 +51,49 @@ const Email = ({ route,navigation }) => {
         }
         
     }
+    useEffect(()=>{
+        if(page){
+            if(user!=undefined  && user.length!=0){
+                const check = async() =>{
+                    try{
+                        console.log('xoxox'+user);
+                        await dispatch(allActions.counter.getAsyncData(email));
+                        await AsyncStorage.setItem('user',JSON.stringify(user));        
+                        await navigation.navigate('Home');
+                    }
+                    catch (err) {
+                        showMessage({ text: `${errors}`, color: "red" });
+                    }
+                }
+                check();
+            }
+        }
+        else{
+            if(user!=undefined && user.length==0){
+                showMessage({ text: `No Sign Up`, color: "red" });
+            }
+            else if(user!=undefined){
+                const check = async() =>{
+                    try{
+                        const phoneProvider = new firebase.auth.PhoneAuthProvider();
+                        const verificationId = await phoneProvider.verifyPhoneNumber(
+                            email,
+                            recaptchaVerifier.current
+                        );
+                        setVerificationId(verificationId);
+                        showMessage({
+                        text: "Verification code has been sent to your phone.",
+                        });
+                        await navigation.navigate('Otp',{number:email,verificationId});
+                    }
+                    catch (err) {
+                        showMessage({ text: `${errors}`, color: "red" });
+                    }
+                }
+                check();
+            }
+        }
+    },[user]);
     return (
         <View style={{backgroundColor:'white',flex:1}}>
             {/* <Image style={{ width: 247, height: 86.29}} resizeMode="contain" source={require('../../assets/Logo/LOGOtransparent.png')} /> */}
@@ -56,18 +102,21 @@ const Email = ({ route,navigation }) => {
                 firebaseConfig={firebaseConfig}
                 attemptInvisibleVerification={true}
             />
+            <Slider/>
             {page &&
-            <Text style={{fontSize:10,top:"78.5%",left:"15%",color:'#98989B'}}>Email</Text> &&
+                <Text style={{fontSize:10,top:"58.5%",left:"15%",color:'#98989B'}}>Email</Text>
+            }
+            {page &&
             <TextInput
-                style={{width:'70%',fontSize:17,top:"80%",left:"15%",borderColor:'#98989B',borderBottomWidth:1}}
+                style={{width:'70%',fontSize:17,top:"60%",left:"15%",borderColor:'#98989B',borderBottomWidth:1}}
                 onChangeText={text => setEmail(text)}
                 value={email}
             ></TextInput>
             }
             {!page && 
-                <Text style={{fontSize:10,top:"78.5%",left:"15%",color:'#98989B'}}>Email/Number</Text> &&
+                <Text style={{fontSize:10,top:"58.5%",left:"15%",color:'#98989B'}}>Email/Number</Text> &&
                 <TextInput
-                style={{width:'70%',fontSize:17,top:"80%",left:"15%",borderColor:'#98989B',borderBottomWidth:1}}
+                style={{width:'70%',fontSize:17,top:"60%",left:"15%",borderColor:'#98989B',borderBottomWidth:1}}
                 onChangeText={text => setEmail(text)}
                 keyboardType={'phone-pad'}
                 value={email}
@@ -109,20 +158,18 @@ const Email = ({ route,navigation }) => {
                                 url: proxyUrl
                             })
                             .then(async ()=>{
-                                await navigator.geolocation.getCurrentPosition(
-                                    (position) =>{ 
-                                        console.log(position);
-                                        SetLocation(position);
-                                    },
-                                    (err) => console.log(err),
-                                    { enableHighAccuracy: false, timeout: 8000, maximumAge: 10000 }
-                                  );
+                                // await navigator.geolocation.getCurrentPosition(
+                                //     ((position) =>{ 
+                                //         // console.log(position);
+                                //         SetLocation(position);
+                                //     })(),
+                                //     (err) => console.log(err),
+                                //     { enableHighAccuracy: false, timeout: 8000, maximumAge: 10000 }
+                                //   );
+                                console.log("coco");
                                 await dispatch(allActions.counter.signup([name,number,email,location]));
                                 // await dispatch(allActions.counter.getAsyncUser(number));
-                                await dispatch(allActions.tag.push(number));
-                                await dispatch(allActions.counter.getAsyncData(email));
-                                
-                                await navigation.navigate('Home');
+                                // await dispatch(allActions.tag.push(number));
                             })
                             .catch(err=>{
                                 console.log(err);
@@ -147,22 +194,12 @@ const Email = ({ route,navigation }) => {
                         alignSelf:'center',
                         justifyContent:'center',
                         alignItems:'center',
-                        top:'85%'
+                        top:'65%'
                     }}
                     onPress={async () => {
                             try {
                                 await Validate("number");
-                                const phoneProvider = new firebase.auth.PhoneAuthProvider();
-                                const verificationId = await phoneProvider.verifyPhoneNumber(
-                                email,
-                                recaptchaVerifier.current
-                                );
-                                setVerificationId(verificationId);
-                                showMessage({
-                                text: "Verification code has been sent to your phone.",
-                                });
                                 await dispatch(allActions.counter.getAsyncUser(email));
-                                await navigation.navigate('Otp',{number:email,verificationId});
                             } catch (err) {
                                 showMessage({ text: `${errors}`, color: "red" });
                             }
@@ -194,7 +231,7 @@ const Email = ({ route,navigation }) => {
             //     style={[StyleSheet.absoluteFill, { backgroundColor: 0xffffffee, justifyContent: "center" }]}
             //     onPress={() => showMessage(undefined)}
             // >
-                <Text style={{color: message.color || "blue", fontSize: 15,top:"74.8%",left:"15%", }}>
+                <Text style={{color: message.color || "blue", fontSize: 15,top:"54.8%",left:"15%", }}>
                     {message.text}
                 </Text>
             // </TouchableOpacity>
@@ -219,7 +256,7 @@ const styles = StyleSheet.create({
         borderRadius:10,
         justifyContent:'center',
         alignItems:'center',
-        top:'85%'
+        top:'65%'
     },
     button3:{
         borderRadius:10,
@@ -238,7 +275,7 @@ const styles = StyleSheet.create({
         borderRadius:10,
         justifyContent:'center',
         alignItems:'center',
-        top:'50%'
+        top:'30%'
     },
     button2:{
         width:295,
@@ -249,7 +286,7 @@ const styles = StyleSheet.create({
         borderRadius:10,
         justifyContent:'center',
         alignItems:'center',
-        top:'52%'
+        top:'32%'
     }
 });
 

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="546aafaf-ff6f-4f6b-9a8b-2207c0af211d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.expo-shared/assets.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__tests__/Brand-test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__tests__/CarScreen-test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__tests__/Done-test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__tests__/Find-test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__tests__/Header-test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__tests__/HomeScreen-test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__tests__/Overview-test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__tests__/ProgressBar-test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__tests__/SearchBar-test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__tests__/Tag-test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__tests__/Title-test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__tests__/Type-test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Car_register_collage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Brands/Mask Group-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Brands/Mask Group-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Brands/Mask Group-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Brands/Mask Group-4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Brands/Mask Group-5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Brands/Mask Group-6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Brands/Mask Group.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Brands/notsure.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Cartype/Hatchback.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Cartype/Luxury.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Cartype/Notsure.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Cartype/SUV.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Cartype/Sedan.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Cartype/crossover.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Group/ 1.png" beforePathEscaped="$PROJECT_DIR$/assets/Images/Group/🏅 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Group/ 1.png" beforePathEscaped="$PROJECT_DIR$/assets/Images/Group/👀 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Group/ 2.png" beforePathEscaped="$PROJECT_DIR$/assets/Images/Group/👍 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Group/.png" beforePathEscaped="$PROJECT_DIR$/assets/Images/Group/􀈠.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Group/.png" beforePathEscaped="$PROJECT_DIR$/assets/Images/Group/􀉯.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Group/active.png" beforePathEscaped="$PROJECT_DIR$/assets/Images/Group/􀉯active.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Group/.png" beforePathEscaped="$PROJECT_DIR$/assets/Images/Group/􀎸.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Group/.png" beforePathEscaped="$PROJECT_DIR$/assets/Images/Group/􀕹.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Home/Cars.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Home/Cars_Banner.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Home/Gold_Banner.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Home/Real Estate.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Home/Real_Estate_Banner.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Home/back chevron.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Home/hamburger_menu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Home/.png" beforePathEscaped="$PROJECT_DIR$/assets/Images/Home/🔥.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Overview/Illustration.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Overview/New.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Overview/location.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Overview/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Overview/price.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Overview/time.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Overview/used.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Tab icons/Explore.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Tab icons/Group active.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Tab icons/Group.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Tab icons/Home Active.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images/Tab icons/Home.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Logo/LOGO white bg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Logo/LOGOtransparent.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/abc.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/car.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/chat_background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/chat_collage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/splash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/babel.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/counter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/sagas.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/tag.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/Header.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/ProgressBar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/SearchBar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/Tag.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/Title.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/car/Brand.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/car/Done.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/car/Find.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/car/Overview.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/car/Type.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/chat/Firebase.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/chat/Group.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/chat/Info.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/chat/Message.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/chat/Newgroup.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/CarForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navigators/DrawerNavigator.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navigators/StackNavigator.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navigators/TabNavigator.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/counter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/tag.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Account.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/CarScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/ComingSoon.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Email.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/GroupScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/HomeScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/LoginScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Logsign.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Otp.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Sign.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Something.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Splash.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn-error.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1kqUm145FYBJsiW5g9SsvoxFiDG" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="546aafaf-ff6f-4f6b-9a8b-2207c0af211d" name="Default Changelist" comment="" />
+      <created>1606427770578</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1606427770578</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-1595" y="100" width="1500" height="738" key="AVDManager" timestamp="1608057809680">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="168" y="120" width="1200" height="584" key="AVDManager/0.0.1536.824/1920.10.1920.1040@0.0.1536.824" timestamp="1606435851592" />
+    <state x="186" y="167" width="1200" height="584" key="AVDManager/0.0.1536.824/1920.8.1920.1040@0.0.1536.824" timestamp="1607459788357" />
+    <state x="186" y="167" width="1200" height="584" key="AVDManager/0.0.1536.824/1920.9.1920.1040@0.0.1536.824" timestamp="1607271938212" />
+    <state x="186" y="167" width="1200" height="584" key="AVDManager/0.0.1536.824@0.0.1536.824" timestamp="1606645710247" />
+    <state x="-1588" y="147" width="1500" height="738" key="AVDManager/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1607797843437" />
+    <state x="-1595" y="100" width="1500" height="738" key="AVDManager/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1608057809680" />
+    <state x="332" y="147" width="1500" height="738" key="AVDManager/0.0.1920.1040/1920.8.1920.1040@0.0.1920.1040" timestamp="1607799264350" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1606645010423">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1606645010423" />
+    <state width="1340" height="330" key="GridCell.Tab.0.bottom" timestamp="1606645939555">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1340" height="330" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1606645939555" />
+    <state width="1340" height="330" key="GridCell.Tab.0.center" timestamp="1606645939555">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1340" height="330" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1606645939555" />
+    <state width="1340" height="330" key="GridCell.Tab.0.left" timestamp="1606645939555">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1340" height="330" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1606645939555" />
+    <state width="1340" height="330" key="GridCell.Tab.0.right" timestamp="1606645939555">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1340" height="330" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1606645939555" />
+    <state x="277" y="57" key="SettingsEditor" timestamp="1606427924202">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="57" key="SettingsEditor/0.0.1536.824/1920.10.1920.1040@0.0.1536.824" timestamp="1606427924202" />
+  </component>
+</project>

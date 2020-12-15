@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import allActions from '../../actions/index';
 import { FlatList } from 'react-native-gesture-handler';
 import { chatsRef } from './Firebase';
+import MaskedView from '@react-native-community/masked-view';
+import {LinearGradient} from 'expo-linear-gradient'
+
 
 const Group = () => {
     const dispatch = useDispatch();
@@ -60,10 +63,17 @@ const Group = () => {
     //         return () => unsubscribe();
     //     }
     // }
+    const GradientText = props => (
+        <MaskedView  style={{top:53,left:20}} maskElement={<Text {...props} />}>
+          <LinearGradient colors={['#8D58FF', '#5A40FF']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}>
+            <Text {...props} style={[props.style, { opacity: 0 }]} />
+          </LinearGradient>
+        </MaskedView>
+      );
     return (
         <View >
             <View style={styles.header}>
-                <Text style = {styles.heading}>Groups</Text>
+            <GradientText style={styles.heading}>Groups</GradientText>
                 <TouchableOpacity
                     style = {styles.new}
                     onPress={async() => {
@@ -71,7 +81,8 @@ const Group = () => {
                         await dispatch(allActions.counter.dec());
                     }}
                 >
-                    <Text style={{fontFamily: "Roboto",fontSize: 13,textAlign: "right",color: "#754EFF"}}>New Group</Text>
+                    <Image style={{ top:2,width: 16, height: 16, overflow: 'hidden'}} resizeMode="contain" source={require('../../../assets/Images/Group/newgrp.png')} />
+                    <Text style={{fontFamily: "Roboto",fontSize: 15,color: "#754EFF"}}> NEW GROUP</Text>
                 </TouchableOpacity>
             </View>
             <View style={{ backgroundColor: 'white' }}>
@@ -110,22 +121,23 @@ const Group = () => {
 const styles = StyleSheet.create({
     header: {
         height: 102,
-        backgroundColor:"#F2F2F6"
+        backgroundColor:"#F2F2F6",
+        flexDirection:'row'
     },
     heading:{
-        height:42,
+        alignSelf:'flex-start',
+        height:45,
         width:117,
-        top:53,
-        left:20,
         fontWeight:"bold",
         fontSize:35,
         color: "#8D58FF"
     },
     new:{
-        width: 74,
-        height: 15,
-        left: '80%',
-        top: 33
+        width: 95,
+        height: 17,
+        top: 75,
+        flexDirection:'row',
+        left:'40%'
     },
     menu: {
         left: 25,

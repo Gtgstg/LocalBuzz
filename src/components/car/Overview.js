@@ -10,23 +10,23 @@ const Overview = (props) => {
     const dispatch = useDispatch();
     const users = useSelector((state)=>state.user).payload;
     const invite_tag = props.invite_tag;
-    const tags = props.invite_tag?[invite_tag.group_name,invite_tag.car_brand,invite_tag.car_expected_time,invite_tag.car_location,invite_tag.car_price,invite_tag.car_type,invite_tag.car_use]:useSelector((state) => state.tag);
+    const tags = props.invite_tag?[invite_tag.car_brand,invite_tag.car_expected_time,invite_tag.car_location,invite_tag.car_price,invite_tag.car_type,invite_tag.car_use]:useSelector((state) => state.tag);
     const screenHeight = Math.round(Dimensions.get('window').height);
     const viewStyle = {
         backgroundColor:'white',
         height:screenHeight
     }
-    console.log(users);
+    // console.log(users);
     return (
         <View style={viewStyle}>
             {invite_tag &&
                 <View style={{height:138}}>
                     <Text style={{fontWeight:"bold",fontSize:20,top:50,left:20,paddingBottom:50}}>{invite_tag.invitee} invited you to:</Text>
-                    <Title title={tags[0]}/>
+                    <Title title={invite_tag.group_name}/>
                 </View>
             }
             <FlatList
-                data={tags.slice(1)}
+                data={tags}
                 keyExtractor={(item, index) => index.toString()}
                 renderItem={({ item }) => {
                     return (
@@ -87,13 +87,14 @@ const Overview = (props) => {
                 <TouchableOpacity
                     onPress={
                         async ()=> {
-                            console.log(tags.length)
-                            if(tags.length ==9){
+                            // console.log(tags.length)
+                            if(tags.length ==8){
                             
                                 await dispatch(allActions.counter.postAsyncCreateData({tags}));
                             }
                             else{
-                                await dispatch(allActions.counter.postAsyncData(tags));
+                                let x=[...tags,users[0].id];
+                                await dispatch(allActions.counter.postAsyncData(x));
                             }
                             await dispatch(allActions.counter.increment());
                         }

@@ -55,10 +55,10 @@ const Find = ({ counter, search }) => {
             places.push(place);
             }
             // Show all the places around 4 km from San Francisco.
-            console.log(
-            'The places around you: ' +
-            places.map(nearbyPlaces => nearbyPlaces.placeName),
-            );
+            // console.log(
+            // 'The places around you: ' +
+            // places.map(nearbyPlaces => nearbyPlaces.placeName),
+            // );
         })
         .catch(error => { 
             console.log(error);
@@ -83,6 +83,7 @@ const Find = ({ counter, search }) => {
     return (
         <View style={{ backgroundColor: 'white' }}>
             {searchBar()}
+            { counter>=0 &&
             <FlatList
                 data={Form[counter].data}
                 keyExtractor={(item, index) => index.toString()}
@@ -101,6 +102,7 @@ const Find = ({ counter, search }) => {
                     )
                 }}
             />
+        }
         </View>
     );
 }

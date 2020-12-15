@@ -10,6 +10,7 @@ const Info = ({ navigation }) => {
     const dispatch = useDispatch();
 
     const [modalVisible, setModalVisible] = useState(false);
+    const [leaveVisible, setLeaveVisible] = useState(false);
     const groups = useSelector((state)=>state.groups).payload;
     const user = useSelector((state)=>state.user).payload;
     const users = useSelector((state)=>state.groupUser).payload;
@@ -34,11 +35,21 @@ const Info = ({ navigation }) => {
         // })
         // return () => unsubscribe()
         // dispatch(allActions.counter.getUsers(group.id));
-    },[]);
+    },[users]);
     return (
         <View style={{flex:1}}>
             <View style={styles.header}>
-                <Text style = {styles.heading}>{group.group_name}</Text>
+                <TouchableOpacity
+                    style={{left:16,width:35,height:80}}
+                    onPress={
+                        ()=>{dispatch(allActions.counter.dec())}
+                    }
+                >
+                    <Image style={{ top:40,width: 35, height: 35, overflow: 'hidden', borderRadius: 40}} resizeMode="contain" source={require('../../../assets/back.png')} />
+                </TouchableOpacity>
+                <View style = {styles.heading}>
+                    <Text style={{fontWeight:"bold",fontSize:17,color: "#000000"}}>{group.group_name}</Text>
+                </View>
             </View>
             <View>
             <Image style={{ height: 180}} resizeMode="stretch" source={{uri:'https://i.pinimg.com/originals/d7/83/b9/d783b97190faf629752fd50003061755.jpg'}} />
@@ -70,21 +81,65 @@ const Info = ({ navigation }) => {
                             onChangeText={text => setName(text)}
                             value={name}
                         ></TextInput>
-                        <TouchableHighlight
-                        style={{ ...styles.openButton, backgroundColor: "#98989B" }}
-                        onPress={async () => {
-                            await dispatch(allActions.counter.sendMail([name,group,user[0].id]));
-                            setModalVisible(!modalVisible);
-                        }}
-                        >
-                        <Text style={styles.textStyle}>Send</Text>
-                        </TouchableHighlight>
+                        <View flexDirection="row">
+                            <TouchableHighlight
+                            style={{ ...styles.openButton, backgroundColor: "#754EFF" }}
+                            onPress={async () => {
+                                await dispatch(allActions.counter.sendMail([name,group,user[0].id]));
+                                setModalVisible(!modalVisible);
+                            }}
+                            >
+                            <Text style={styles.textStyle}>Send</Text>
+                            </TouchableHighlight>
+                            <TouchableHighlight
+                                style={{ ...styles.openButton, backgroundColor: "#754EFF",left:10 }}
+                                onPress={async () => {
+                                    setModalVisible(!modalVisible);
+                                }}
+                                >
+                                <Text style={styles.textStyle}>Cancel</Text>
+                            </TouchableHighlight>
+                        </View>
                     </View>
+                    </View>
+                </Modal>
+                <Modal
+                    animationType="slide"
+                    transparent={true}
+                    visible={leaveVisible}
+                    onRequestClose={() => {
+                    Alert.alert("Modal has been closed.");
+                    }}
+                >
+                    <View style={styles.centeredView}>
+                        <View style={styles.modalView}>
+                            <Text style={styles.modalText}>Are you sure you want to leave?</Text>
+                            <View style={{flexDirection:'row'}}>
+                                <TouchableHighlight
+                                style={{ ...styles.openButton, backgroundColor: "#754EFF" }}
+                                onPress={async () => {
+                                    await dispatch(allActions.counter.leave([group.id,user[0].id]));
+                                    await navigation.navigate('Home');
+                                    setLeaveVisible(!leaveVisible);
+                                }}
+                                >
+                                    <Text style={styles.textStyle}>Yes</Text>
+                                </TouchableHighlight>
+                                <TouchableHighlight
+                                style={{ ...styles.openButton, backgroundColor: "#754EFF",left:10 }}
+                                onPress={async () => {
+                                    setLeaveVisible(!leaveVisible);
+                                }}
+                                >
+                                <Text style={styles.textStyle}>Cancel</Text>
+                                </TouchableHighlight>
+                            </View>
+                        </View>
                     </View>
                 </Modal>
                     <Text style={{left:17,bottom:6,color:'#86868C'}}>{len} MEMBERS</Text>
                     <TouchableOpacity 
-                        style={{left:270,backgroundColor:'#754EFF',borderRadius:4,width:73,height:19,bottom:6}}
+                        style={{left:'57%',backgroundColor:'#754EFF',borderRadius:4,width:73,height:19,bottom:6,flexDirection:'row'}}
                         onPress={
                             async ()=>{
                                 await 
@@ -92,7 +147,8 @@ const Info = ({ navigation }) => {
                             }
                         }
                     >
-                        <Text style={{color:"white",left:27,fontSize:13}}>INVITE</Text>
+                        <Image style={{width: 18, height: 16, overflow: 'hidden',left:5}} resizeMode="contain" source={require('../../../assets/Images/Group/invite.png')} />
+                        <Text style={{color:"white",fontSize:13}}>   INVITE</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -113,8 +169,7 @@ const Info = ({ navigation }) => {
             <TouchableOpacity
                 onPress={
                     async ()=>{
-                        await dispatch(allActions.counter.leave([group.id,user[0].id]));
-                        await navigation.navigate('Home');
+                        await setLeaveVisible(true);
                     }
                 }
             >
@@ -176,16 +231,13 @@ const styles = StyleSheet.create({
     },
     header: {
         height: 88,
-        backgroundColor:"#F2F2F6"
+        backgroundColor:"#F2F2F6",
+        flexDirection:'row'
     },
     heading:{
         height:20,
-        width:97,
         top:51,
-        alignSelf:'center',
-        fontWeight:"bold",
-        fontSize:17,
-        color: "#000000"
+        left:'150%'
     },
     new:{
         width: 74,

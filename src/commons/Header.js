@@ -17,7 +17,7 @@ const Header = ({ type }) => {
                 type<6 &&
             <FlatList style={styles.flatList}
                 horizontal
-                data={tags.slice(1)}
+                data={tags}
                 keyExtractor={(item, index) => index.toString()}
                 renderItem={({ item }) => {
                     return (
